@@ -1,0 +1,73 @@
+﻿<UserControl x:Class="Vodovoz.Views.AddStaffMemberView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Vodovoz.Views"
+             mc:Ignorable="d" 
+             Height="200">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <TextBlock Text="Добавить сотрудника" Style="{StaticResource Header}" HorizontalAlignment="Center" />
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <StackPanel Grid.Column="1" Margin="5 0">
+                <TextBlock Text="Фамилия" HorizontalAlignment="Center" />
+
+                <TextBox Margin="0 5 0 0" Text="{Binding LastName}"/>
+            </StackPanel>
+
+            <StackPanel Grid.Column="2" Margin="5 0">
+                <TextBlock Text="Имя" HorizontalAlignment="Center" />
+
+                <TextBox Margin="0 5 0 0" Text="{Binding Name}"/>
+            </StackPanel>
+
+            <StackPanel Grid.Column="3" Margin="5 0">
+                <TextBlock Text="Отчество" HorizontalAlignment="Center" />
+
+                <TextBox Margin="0 5 0 0" Text="{Binding SurName}"/>
+            </StackPanel>
+
+            <StackPanel Grid.Column="4" Margin="5 0">
+                <TextBlock Text="Дата Рождения" HorizontalAlignment="Center" />
+
+                <DatePicker Margin="0 5 0 0" SelectedDate="{Binding Birthday}" DisplayDateStart="1/1/2022" />
+            </StackPanel>
+
+            <StackPanel Grid.Column="5" Margin="5 0">
+                <TextBlock Text="Пол" HorizontalAlignment="Center" />
+
+                <TextBox Margin="0 5 0 0" Text="{Binding Gender}"/>
+            </StackPanel>
+
+            <StackPanel Grid.Column="6" Margin="5 0">
+                <TextBlock Text="Подразделение" HorizontalAlignment="Center" />
+
+                <TextBox Margin="0 5 0 0" Text="{Binding Department}"/>
+            </StackPanel>
+        </Grid>
+
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button Content="Добавить" Margin="5" Command="{Binding SubmitCommand}" />
+
+            <Button Content="Отмена" Margin="5" Command="{Binding CancelCommand}" />
+        </StackPanel>
+    </Grid>
+</UserControl>

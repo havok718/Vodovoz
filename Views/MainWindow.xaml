@@ -1,0 +1,25 @@
+﻿<Window x:Class="Vodovoz.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Vodovoz" xmlns:views="clr-namespace:Vodovoz.Views"
+        xmlns:vms="clr-namespace:Vodovoz.ViewModels"
+        mc:Ignorable="d" FontSize="14"
+        Title="Vodovoz" Height="450" Width="800">
+    <Grid Margin="20 10" MaxWidth="800">
+        <Grid.Resources>
+            <DataTemplate DataType="{x:Type vms:AddStaffMemberViewModel}">
+                <views:AddStaffMemberView />
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type vms:UpdateStaffMemberViewModel}">
+                <views:EditStaffMemberView />
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type vms:StaffListingViewModel}">
+                <views:StaffListingView />
+            </DataTemplate>
+        </Grid.Resources>
+        
+        <ContentControl Content="{Binding CurrentViewModel}" />
+    </Grid>
+</Window>
