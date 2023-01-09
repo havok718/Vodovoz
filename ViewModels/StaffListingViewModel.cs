@@ -30,6 +30,7 @@ namespace Vodovoz.ViewModels
         public ICommand RemoveStaffMemberCommand { get; }
         public ICommand UpdateStaffMemberCommand { get; }
         public ICommand LoadStaffCommand { get; }
+        public ICommand BackCommand { get; }
 
         public StaffMemberViewModel? SelectedStaffMember
         {
@@ -54,13 +55,14 @@ namespace Vodovoz.ViewModels
             }
         }
 
-        public StaffListingViewModel(StaffStore staffStore, NavigationService addStaffMemberViewNavigationService, NavigationService updateStaffMemberNavigationService)
+        public StaffListingViewModel(StaffStore staffStore, NavigationService addStaffMemberViewNavigationService, NavigationService updateStaffMemberNavigationService, NavigationService backNavigationService)
         {
             _staffMembers = new ObservableCollection<StaffMemberViewModel>();
             AddStaffMemberCommand = new NavigateCommand(addStaffMemberViewNavigationService);
             UpdateStaffMemberCommand = new NavigateCommand(updateStaffMemberNavigationService);
             RemoveStaffMemberCommand = new RemoveStaffMemberCommand(this, staffStore);
             LoadStaffCommand = new LoadStaffCommand(staffStore, this);
+            BackCommand = new NavigateCommand(backNavigationService);
 
             _staffStore = staffStore;
             _staffStore.StaffMemberAdded += OnStaffMemberAdded;
@@ -80,9 +82,9 @@ namespace Vodovoz.ViewModels
             _staffMembers.Add(staffMemberViewModel);
         }
 
-        public static StaffListingViewModel LoadViewModel(StaffStore staffStore, NavigationService addStaffMemberViewNavigationService, NavigationService editStaffMemberNavigationService)
+        public static StaffListingViewModel LoadViewModel(StaffStore staffStore, NavigationService addStaffMemberViewNavigationService, NavigationService editStaffMemberNavigationService, NavigationService backNavigationService)
         {
-            var vm = new StaffListingViewModel(staffStore, addStaffMemberViewNavigationService, editStaffMemberNavigationService);
+            var vm = new StaffListingViewModel(staffStore, addStaffMemberViewNavigationService, editStaffMemberNavigationService, backNavigationService);
             vm.LoadStaffCommand.Execute(null);
             return vm;
         }

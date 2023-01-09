@@ -93,16 +93,16 @@ namespace Vodovoz.ViewModels
             }
         }
 
-        private int _department;
-        public int Department
+        private string _departmentName;
+        public string DepartmentName
         {
             get
             {
-                return _department;
+                return _departmentName;
             }
             set
             {
-                _department = value;
+                _departmentName = value;
                 OnPropertyChanged(nameof(Department));
             }
         }

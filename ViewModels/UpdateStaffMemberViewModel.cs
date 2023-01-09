@@ -16,7 +16,7 @@ namespace Vodovoz.ViewModels
         public string Name { get; set; }
         public DateTime Birthday { get; set; }
         public Gender Gender { get; set; }
-        public int Department { get; set; }
+        public string DepartmentName { get; set; }
 
         public ICommand SubmitCommand { get; }
         public ICommand CancelCommand { get; }
@@ -31,7 +31,7 @@ namespace Vodovoz.ViewModels
             Gender = selectedStaffMember.Gender;
             Birthday = selectedStaffMember.Birthday;
             SurName = selectedStaffMember.SurName;
-            Department = selectedStaffMember.Department;
+            DepartmentName = selectedStaffMember.DepartmentName;
 
             SubmitCommand = new UpdateStaffMemberCommand(this, staffStore);
             CancelCommand = new NavigateCommand(navigationService);

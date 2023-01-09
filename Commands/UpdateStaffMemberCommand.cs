@@ -38,7 +38,7 @@ namespace Vodovoz.Commands
                 case nameof(UpdateStaffMemberViewModel.Gender):
                     OnCanExecuteChanged();
                     break;
-                case nameof(UpdateStaffMemberViewModel.Department):
+                case nameof(UpdateStaffMemberViewModel.DepartmentName):
                     OnCanExecuteChanged();
                     break;
             }
@@ -49,7 +49,7 @@ namespace Vodovoz.Commands
             return !string.IsNullOrEmpty(_vm.LastName) &&
                 !string.IsNullOrEmpty(_vm.SurName) &&
                 !string.IsNullOrEmpty(_vm.Name) &&
-                _vm.Department != null &&
+                !string.IsNullOrEmpty(_vm.DepartmentName) &&
                 (_vm.Gender == Gender.Male || _vm.Gender == Gender.Female) &&
                 base.CanExecute(parameter);
         }
@@ -58,7 +58,7 @@ namespace Vodovoz.Commands
         {
             try
             {
-                await _staffStore.EditStaffMember(new StaffMember(_vm.Id, _vm.LastName, _vm.SurName, _vm.Name, _vm.Birthday, _vm.Gender, _vm.Department));
+                await _staffStore.EditStaffMember(new StaffMember(_vm.Id, _vm.LastName, _vm.SurName, _vm.Name, _vm.Birthday, _vm.Gender, _vm.DepartmentName));
                 MessageBox.Show("Сотрудник изменен", "Выполнено", MessageBoxButton.OK, MessageBoxImage.Information);
             }
             catch (StaffConflictException)

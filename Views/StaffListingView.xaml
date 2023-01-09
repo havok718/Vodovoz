@@ -84,6 +84,8 @@
             <Button Content="Изменить сотрудника" Margin="10 10 0 0" Command="{Binding UpdateStaffMemberCommand}" IsEnabled="{Binding SelectedStaffMember, TargetNullValue=false}" />
             
             <Button Content="Удалить сотрудника" Margin="10 10 0 0" Command="{Binding RemoveStaffMemberCommand}" />
+
+            <Button Content="Назад" Margin="10 10 0 0" Command="{Binding BackCommand}" />
         </StackPanel>
     </Grid>
 </UserControl>

@@ -16,10 +16,10 @@ namespace Vodovoz.Models
         public string Name { get; set; }
         public DateTime Birthday { get; set; }
         public Gender Gender { get; set; }
-        public int Department { get; set; }
+        public string DepartmentName { get; set; }
         public bool IsSelected { get; set; }
 
-        public StaffMember(int id, string lastName, string surName, string name, DateTime birthday, Gender gender, int department)
+        public StaffMember(int id, string lastName, string surName, string name, DateTime birthday, Gender gender, string departmentName)
         {
             Id = id;
             LastName = lastName;
@@ -27,7 +27,7 @@ namespace Vodovoz.Models
             Name = name;
             Birthday = birthday;
             Gender = gender;
-            Department = department;
+            DepartmentName = departmentName;
         }
     }
 }

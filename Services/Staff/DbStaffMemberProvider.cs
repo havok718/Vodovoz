@@ -24,7 +24,7 @@ namespace Vodovoz.Services.Staff
             using (ApplicationContext context = _dbContextFactory.CreateDbContext())
             {
                 IEnumerable<StaffMemberDTO> staffMemberDTOs = await context.StaffMembers.ToListAsync();
-                return staffMemberDTOs.Select(x => new StaffMember(x.Id, x.LastName, x.SurName, x.Name, x.Birthday, x.Gender, x.Department));
+                return staffMemberDTOs.Select(x => new StaffMember(x.Id, x.LastName, x.SurName, x.Name, x.Birthday, x.Gender, x.DepartmentName));
             }
         }
     }

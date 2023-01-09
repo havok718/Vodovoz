@@ -1,24 +1,20 @@
-﻿using System.Collections.Generic;
-using Vodovoz.Exceptions;
-
-namespace Vodovoz.Models
+﻿namespace Vodovoz.Models
 {
     internal class Order
     {
         public int Id { get; set; }
-        public List<Product> Products { get; set; }
-        public StaffMember StaffMember { get; set; }
+        public int ProductId { get; set; }
+        public string ProductName { get; set; }
+        public int Count { get; set; }
+        public int StaffMember { get; set; }
 
-        public Order(int id, List<Product> products, StaffMember staffMember)
+        public Order(int id, int productId, string productName, int count, int staffMember)
         {
             Id = id;
-            Products = products;
+            ProductId = productId;
+            ProductName = productName;
+            Count = count;
             StaffMember = staffMember;
-        }
-
-        public void AddProduct(Product incomingProduct)
-        {
-            Products.Add(incomingProduct);
         }
     }
 }

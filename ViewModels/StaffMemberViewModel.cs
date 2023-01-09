@@ -11,7 +11,7 @@ namespace Vodovoz.ViewModels
         private string _name;
         private string _birthday;
         private Gender _gender;
-        private int _department;
+        private string _departmentName;
 
         public int Id
         {
@@ -73,13 +73,13 @@ namespace Vodovoz.ViewModels
             }
         }
 
-        public int Department
+        public string DepartmentName
         {
-            get => _department; 
+            get => _departmentName; 
             set
             {
-                _department = value;
-                OnPropertyChanged(nameof(Department));
+                _departmentName = value;
+                OnPropertyChanged(nameof(DepartmentName));
             }
         }
 
@@ -91,7 +91,7 @@ namespace Vodovoz.ViewModels
             Name = staffMember.Name;
             Birthday = staffMember.Birthday.ToString("d");
             Gender = staffMember.Gender;
-            Department = staffMember.Department;
+            DepartmentName = staffMember.DepartmentName;
         }
     }
 }

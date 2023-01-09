@@ -1,9 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Vodovoz.DTOs;
 
 namespace Vodovoz.DbContexts
@@ -15,5 +10,13 @@ namespace Vodovoz.DbContexts
         }
 
         public DbSet<StaffMemberDTO> StaffMembers { get; set; }
+        public DbSet<DepartmentDTO> Departments { get; set; }
+        public DbSet<OrderDTO> Orders { get; set; }
+        public DbSet<ProductDTO> Products { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<OrderDTO>().HasKey(x => new { x.Id, x.ProductId });
+        }
     }
 }

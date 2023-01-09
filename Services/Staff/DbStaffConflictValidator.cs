@@ -26,7 +26,7 @@ namespace Vodovoz.Services.Staff
                     .Where(x => x.Name == staffMember.Name)
                     .Where(x => x.Birthday.Equals(staffMember.Birthday))
                     .Where(x => x.Gender == staffMember.Gender)
-                    .Where(x => x.Department == staffMember.Department)
+                    .Where(x => x.DepartmentName == staffMember.DepartmentName)
                     .FirstOrDefaultAsync();
 
                 if (staffMemberDTO == null)
@@ -34,7 +34,7 @@ namespace Vodovoz.Services.Staff
                     return null;
                 }
 
-                return new StaffMember(staffMemberDTO.Id, staffMemberDTO.LastName, staffMemberDTO.SurName, staffMemberDTO.Name, staffMemberDTO.Birthday, staffMemberDTO.Gender, staffMemberDTO.Department);
+                return new StaffMember(staffMemberDTO.Id, staffMemberDTO.LastName, staffMemberDTO.SurName, staffMemberDTO.Name, staffMemberDTO.Birthday, staffMemberDTO.Gender, staffMemberDTO.DepartmentName);
             }
         }
     }

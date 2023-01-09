@@ -27,7 +27,7 @@ namespace Vodovoz.Services.Staff
                     Name = staffMember.Name,
                     Birthday = staffMember.Birthday,
                     Gender = staffMember.Gender,
-                    Department = staffMember.Department
+                    DepartmentName = staffMember.DepartmentName
                 };
 
                 context.StaffMembers.Add(staffMemberDTO);
@@ -45,6 +45,7 @@ namespace Vodovoz.Services.Staff
                     if (staffMember.Id == id)
                     {
                         context.StaffMembers.Remove(staffMember);
+                        continue;
                     }
                 }
 
@@ -63,7 +64,7 @@ namespace Vodovoz.Services.Staff
                 staffMemberDTO.Name = staffMember.Name;
                 staffMemberDTO.Birthday = staffMember.Birthday;
                 staffMemberDTO.Gender = staffMember.Gender;
-                staffMemberDTO.Department = staffMember.Department;
+                staffMemberDTO.DepartmentName = staffMember.DepartmentName;
 
                 await context.SaveChangesAsync();
             }

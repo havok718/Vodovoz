@@ -41,7 +41,7 @@ namespace Vodovoz
                 appContext.Database.Migrate();
             }
 
-            _navigationStore.CurrentViewModel = CreateStaffListingViewModel();
+            _navigationStore.CurrentViewModel = CreateInitialViewModel();
 
             MainWindow = new MainWindow() 
             {
@@ -51,6 +51,14 @@ namespace Vodovoz
             MainWindow.Show();
 
             base.OnStartup(e);
+        }
+
+        private InitialViewModel CreateInitialViewModel()
+        {
+            return new InitialViewModel(new NavigationService(_navigationStore, CreateStaffListingViewModel),
+                                        new NavigationService(_navigationStore, CreateDepartmentsListingViewModel),
+                                        new NavigationService(_navigationStore, CreateOrdersListingViewModel),
+                                        new NavigationService(_navigationStore, CreateProductsListingViewModel));
         }
 
         private AddStaffMemberViewModel CreateAddStaffMemberViewModel()
@@ -65,7 +73,22 @@ namespace Vodovoz
 
         private StaffListingViewModel CreateStaffListingViewModel()
         {
-            return StaffListingViewModel.LoadViewModel(_staffStore, new NavigationService(_navigationStore, CreateAddStaffMemberViewModel), new NavigationService(_navigationStore, CreateUpdateStaffMemberViewModel));
+            return StaffListingViewModel.LoadViewModel(_staffStore, new NavigationService(_navigationStore, CreateAddStaffMemberViewModel), new NavigationService(_navigationStore, CreateUpdateStaffMemberViewModel), new NavigationService(_navigationStore, CreateInitialViewModel));
+        }
+
+        private DepartmentsListingViewModel CreateDepartmentsListingViewModel()
+        {
+            return DepartmentsListingViewModel.LoadViewModel();
+        }
+
+        private OrdersListingViewModel CreateOrdersListingViewModel()
+        {
+            return OrdersListingViewModel.LoadViewModel();
+        }
+
+        private ProductsListingViewModel CreateProductsListingViewModel()
+        {
+            return ProductsListingViewModel.LoadViewModel();
         }
     }
 }

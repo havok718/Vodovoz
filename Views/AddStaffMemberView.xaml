@@ -54,13 +54,13 @@
             <StackPanel Grid.Column="5" Margin="5 0">
                 <TextBlock Text="Пол" HorizontalAlignment="Center" />
 
-                <TextBox Margin="0 5 0 0" Text="{Binding Gender}"/>
+                <ComboBox ItemsSource="{Binding Source={StaticResource Gender}}" SelectedItem="{Binding Gender}" Margin="0 5 0 0" />
             </StackPanel>
 
             <StackPanel Grid.Column="6" Margin="5 0">
                 <TextBlock Text="Подразделение" HorizontalAlignment="Center" />
 
-                <TextBox Margin="0 5 0 0" Text="{Binding Department}"/>
+                <TextBox Margin="0 5 0 0" Text="{Binding DepartmentName}"/>
             </StackPanel>
         </Grid>
 

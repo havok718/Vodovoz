@@ -6,8 +6,8 @@
         xmlns:local="clr-namespace:Vodovoz" xmlns:views="clr-namespace:Vodovoz.Views"
         xmlns:vms="clr-namespace:Vodovoz.ViewModels"
         mc:Ignorable="d" FontSize="14"
-        Title="Vodovoz" Height="450" Width="800">
-    <Grid Margin="20 10" MaxWidth="800">
+        Title="Vodovoz" Height="450" Width="800" WindowStartupLocation="CenterScreen">
+    <Grid Margin="10 10" MaxWidth="800">
         <Grid.Resources>
             <DataTemplate DataType="{x:Type vms:AddStaffMemberViewModel}">
                 <views:AddStaffMemberView />
@@ -17,6 +17,12 @@
             </DataTemplate>
             <DataTemplate DataType="{x:Type vms:StaffListingViewModel}">
                 <views:StaffListingView />
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type vms:InitialViewModel}">
+                <views:InitialView />
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type vms:DepartmentsListingViewModel}">
+                <views:DepartmentsListingView />
             </DataTemplate>
         </Grid.Resources>
         

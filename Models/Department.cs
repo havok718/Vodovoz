@@ -4,9 +4,9 @@
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public StaffMember? Head { get; set; }
+        public int Head { get; set; }
 
-        public Department(int id, string name, StaffMember? head = null)
+        public Department(int id, string name, int head)
         {
             Id = id;
             Name = name;
